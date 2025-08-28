@@ -14,8 +14,9 @@ const Search = () =>{
 
     const fetchRecipes = async () =>{
      try{
-         let url = `${API_SEARCH}s=${query}`;
+         let  url = `${API_SEARCH}s=${query}`;
 
+         
          if(filter.category){
            url = `${API_FILTER}c=${filter.category}`
      }

@@ -20,12 +20,7 @@ import { useAppContext } from "../Context/AppContext";
              })
           .catch((err)=> console.log(err));
   },[])
-
-  const handlechange =(e)  => {
-          setFilter(({...filter,category:e.target.value}))
-          navigate("/new")
-  }
- 
+  
     return(
         <>
          <div className=" h-[250px] w-[1350px] bg-[#000] flex flex-col " >
@@ -41,10 +36,11 @@ import { useAppContext } from "../Context/AppContext";
              
              <div className="w-[750px] h-[400]  bg-[#fff] flex  flew-row justify-between rounded-md relative bottom-20 left-60 p-1 ">
                 <input className="w-[800px] h-[400] pl-2 bg-[#fff] border-0 focus:outline-none"  type="text"
-                   placeholder="search your favourite...." value={query}  onChange={(e)=> setQuery(e.target.value) } />
-                <span className="  bg-orange-500 rounded-lg relative left-35  "><button className="w-[95px] h-[35px]" onClick={()=>navigate("/new")} >Search</button></span>
-                 <select  value={filter} onChange={handlechange} className="border px-2 py-1 rounded relative left-40 bg-[#fff]" >
-                           <option >All category</option>
+                   placeholder="search your favourite...." value={query}  onChange={(e) =>{ setQuery(e.target.value) } }/>
+                <span className="  bg-orange-500 rounded-lg relative left-35  "><button className="w-[95px] h-[35px]" 
+                onClick={()=>navigate("/new")} >Search</button></span>
+                 <select  value={filter} onChange={(e)  => { setFilter({...filter,category:e.target.value})}} className="border px-2 py-1 rounded relative left-40 bg-[#fff]" >
+                           <option value=" ">All category</option>
                            <option   value="Seafood">Seafood</option> 
                            <option   value="beef">Beef</option> 
                            <option   value="Chicken">Chicken</option> 
