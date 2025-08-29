@@ -16,7 +16,7 @@ const Search = () =>{
      try{
          let  url = `${API_SEARCH}s=${query}`;
 
-         
+
          if(filter.category){
            url = `${API_FILTER}c=${filter.category}`
      }
@@ -44,7 +44,7 @@ const Search = () =>{
                    recipes.map((meal)=>(
                         <div key={meal.idMeal}  
                          className="rounded-sm p-3  text-center bg-linear-to-t from-orange-500 to-orange-800" onClick={()=>navigate(`/recipes/${meal.idMeal}`)}>
-                         <img src={meal.strMealThumb !=="N/A" ? meal.strMealThumb : "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"} alt={meal.strMeal}/>
+                         <img src={meal.strMealThumb  ? meal.strMealThumb : "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"} alt={meal.strMeal}/>
                         <h3 className=" lg:text-[28px] font-[saira] sm:text-[19px]">{meal.strMeal}</h3>
                          <p>{meal.strCategory}</p>
          </div>
