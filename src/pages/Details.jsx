@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { API_DETAILS } from "../backend";
 import StarBorderIcon from '@mui/icons-material/StarBorder';
-
+import StarRateIcon from '@mui/icons-material/StarRate';
 
 
 
@@ -12,6 +12,10 @@ const Details = () =>{
     const [details,setDetails] = useState(null);
     const {id:idMeal } = useParams ();
     const navigate = useNavigate();
+    const [fav,setFav] = useState(()=>{
+         const stored = localStorage.getItem("fav");
+    return stored ? JSON.parse(stored) : [];
+    });
     useEffect(()=>{
            fetch(`${API_DETAILS}i=${idMeal}`,{method:"GET"})
            .then((response)=> response.json())
@@ -22,8 +26,22 @@ const Details = () =>{
               .catch((err)=> console.log(err));
       },[idMeal])
 
-    
+    useEffect(()=>{
+       localStorage.setItem("fav",JSON.stringify(fav));
+    },[fav])
+
+     const addtofav = (id) => {
+    if (fav.includes(id)) {
+      setFav(fav.filter((favId) => favId !== id));
+    } else {
+      setFav([...fav, id]);
+    }
+  };
    
+     const isFav = details ? fav.includes(details.idMeal) : false;
+
+
+
    if(!details) return <p className="text-xl">Loading....</p>
     return(
         <>
@@ -33,7 +51,9 @@ const Details = () =>{
              <div  className="  flex flex-row justify-between p-6" >
                  <button onClick={()=>navigate("/new")}className="text-[20px] cursor-pointer" >Close</button>
                  <h1 className="font-[righteous] text-4xl ">{details.strMeal}</h1>
-                 <span className="cursor-pointer">< StarBorderIcon></StarBorderIcon> Fav</span>
+                 <button onClick={()=>addtofav(details.idMeal)} className={`mt-2 px-4 py-2 ${isFav ? "bg-blue-500" : "bg-gray-300"}`}>
+                  {isFav ? <StarRateIcon></StarRateIcon> :  < StarBorderIcon></StarBorderIcon> }
+                 </button>
              </div>
              <div className="flex flex-row gap-[8rem] pl-10">
                 <div className="flex flex-col gap-2">

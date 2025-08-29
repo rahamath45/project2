@@ -1,12 +1,12 @@
-# React + Vite
+ # the mealdb recipes App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## how to use
 
-Currently, two official plugins are available:
+### In home page you see the category and if you want it any one of them to select the one at all category selection
+### Or other if you want any recipes you text the name in search box it will show the relavent recipes
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## if you want the specific recipes details then click it it will show as a new page
 
-## Expanding the ESLint configuration
+#### its all there integredients,instruction and also youtub link
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+#### when its like to you then click the fav star button, it will be store at localstorage
