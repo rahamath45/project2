@@ -34,8 +34,8 @@ import { useAppContext } from "../Context/AppContext";
               
              </div>
              
-             <div className="w-[750px] h-[400]  bg-[#fff] flex  flew-row justify-between rounded-md relative bottom-20 left-60 p-1 ">
-                <input className="w-[800px] h-[400] pl-2 bg-[#fff] border-0 focus:outline-none"  type="text"
+             <div className="w-[750px]  bg-[#fff] flex  flew-row justify-between rounded-md relative bottom-20 left-60 p-1 ">
+                <input className="w-[800px]  pl-2 bg-[#fff] border-0 focus:outline-none"  type="text"
                    placeholder="search your favourite...." value={query}  onChange={(e) =>{ setQuery(e.target.value) } }/>
                 <span className="  bg-orange-500 rounded-lg relative left-35  "><button className="w-[95px] h-[35px]" 
                 onClick={()=>navigate("/new")} >Search</button></span>
