@@ -23,7 +23,7 @@ import { useAppContext } from "../Context/AppContext";
   
     return(
         <>
-         <div className=" h-[250px] w-[1350px] bg-[#000] flex flex-col " >
+         <div className="h-[250px] w-[1350px] bg-[#000] flex flex-col " >
             <div className="flex relative right-10  flex-row">  
                  <img className=" relative bottom-[40px] " src="https://www.themealdb.com/images/meal-icon.png"/>
                  <span className="font-bold text-[47px] text-[#F4722B]  pr-[10px] pt-4 relative right-8" > THE MEALDB APP</span>
@@ -34,7 +34,7 @@ import { useAppContext } from "../Context/AppContext";
               
              </div>
              
-             <div className="w-[750px]  bg-[#fff] flex  flew-row justify-between rounded-md relative bottom-20 left-60 p-1 ">
+             <div className=" w-[750px]  bg-[#fff] flex  flew-row justify-between rounded-md relative bottom-20 left-60 p-1 ">
                 <input className="w-[800px]  pl-2 bg-[#fff] border-0 focus:outline-none"  type="text"
                    placeholder="search your favourite...." value={query}  onChange={(e) =>{ setQuery(e.target.value) } }/>
                 <span className="  bg-orange-500 rounded-lg relative left-35  "><button className="w-[95px] h-[35px]" 
@@ -59,7 +59,7 @@ import { useAppContext } from "../Context/AppContext";
          </div>
          <div className="  w-[1350px] bg-orange-500 ">
             <h1 className="text-center p-2 text-[40px] font-[righteous]">Categories</h1>
-             <div className="flex flex-wrap flex-row gap-4 p-1">
+             <div className="flex flex-wrap flex-row gap-4 p-1 ">
                 { categ && categ.map(meal =>(parseInt(meal.idCategory) <=12 && (
                   <div className="text-center cursor-pointer" key={meal.idCategory} >
                      <img  src={meal.strCategoryThumb}/>

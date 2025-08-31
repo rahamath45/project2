@@ -45,23 +45,24 @@ const Details = () =>{
    if(!details) return <p className="text-xl">Loading....</p>
     return(
         <>
-         <div className="  inset-0 bg-gray-400 flex justify-center items-center bg-opacity-50 p-4 sm:h-[1700px] lg:h-[1400px]" >
+         <div className="  inset-0 bg-gray-400 flex justify-center items-center bg-opacity-50 sm:h-[1700px] p-1 lg:h-[1400px]  p-4" >
             {details && (
-                  <div className=" mt-4 lg:h-[1300px] w-[1100px]  bg-linear-to-t from-orange-700 to-orange-400 rounded-lg flex flex-col inset-shadow-sm inset-shadow-orange-900" key={details.idMeal} >
-             <div  className="  flex flex-row justify-between p-6" >
+                  <div className=" mt-4 lg:h-[1300px] w-[1100px]  bg-linear-to-t from-orange-700 to-orange-400 rounded-lg 
+                  flex flex-col inset-shadow-sm inset-shadow-orange-900" key={details.idMeal} >
+             <div  className="  lg:flex flex-row lg:justify-between lg:p-6 sm:flex flex-row p-2 text-center" >
                  <button onClick={()=>navigate("/new")}className="text-[20px] cursor-pointer" >Close</button>
-                 <h1 className="font-[righteous] text-4xl ">{details.strMeal}</h1>
+                 <h1 className="font-[righteous] lg:text-4xl sm:text-[20px]">{details.strMeal}</h1>
                  <button onClick={()=>addtofav(details.idMeal)} className={`mt-2 px-4 py-2 ${isFav ? "bg-blue-500" : "bg-gray-300"}`}>
                   {isFav ? <StarRateIcon></StarRateIcon> :  < StarBorderIcon></StarBorderIcon> }
                  </button>
              </div>
-             <div className="flex flex-row gap-[8rem] pl-10">
+             <div className="lg:flex flex-row lg:gap-[8rem] lg:pl-10 sm:p-4">
                 <div className="flex flex-col gap-2">
-                    <img className="w-[400px] h-[500px] object-cover  pt-8 rounded-md"src={details.strMealThumb  ? details.strMealThumb : "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"} alt={details.strMeal} />
+                    <img className="lg:w-[400px] h-[500px] object-cover  pt-8 rounded-md "src={details.strMealThumb  ? details.strMealThumb : "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"} alt={details.strMeal} />
                     <p className="text-center font-[saira] text-[30px]">{details.strCategory}</p>
                     <p className="text-center ">({details.strArea})</p>
                 </div>
-                <div className=" mt-20 flew flew-col gap-2 rounded-2xl w-[350px] h-[500px] bg-[#000]  ">
+                <div className=" mt-20 flew flew-col gap-2 rounded-2xl lg:w-[350px] lg:h-[500px] bg-[#000] sm:w-[200px] sm:h-[700px] m-2 ">
                     <h3 className="pt-6 pl-20 text-[25px] relative  text-[#F4722B]">Ingredients Board</h3>
                      <ul className="list-disc pl-12 pt-4 text-[#fff]">
                           {Array.from({ length: 20 }, (_, i) => i + 1) .map((i) => ({ ingredient: details[`strIngredient${i}`],
@@ -71,9 +72,9 @@ const Details = () =>{
                    </ul>
                 </div>
              </div>
-             <div className="flex flex-col gap-4 mt-18">
+             <div className="flex flex-col gap-4 mt-11">
                 <div className="text-center text-[45px] text-[saira]">Instruction</div>
-                <p className="text-[#000] text-[20px] p-8 pl-25 pr-18">{details.strInstructions}</p>
+                <p className="text-[#000] lg:text-[20px] lg:p-8 lg:pl-25 lg:pr-18 sm:text-[13px] p-6">{details.strInstructions}</p>
                 {details.strYoutube && (
                     <div className="text-center "> Watch on Youtube:<Link> {details.strYoutube}</Link>
                     </div>

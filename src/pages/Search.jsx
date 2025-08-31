@@ -38,8 +38,8 @@ const Search = () =>{
     return(
            <div className="bg-gray-500 h-[2000px]">
            
-           <div className="font-[righteous] text-[20px] pl-10 relative top-10  " onClick={()=>navigate("/")}> <ArrowBackIcon></ArrowBackIcon> Back</div>
-        <div className="grid grid-cols-5 gap-4 m-6 mt-18 h-14 ">
+           <div className="font-[righteous] lg:text-[20px] pl-10 relative top-10  " onClick={()=>navigate("/")}> <ArrowBackIcon></ArrowBackIcon> Back</div>
+        <div className="lg:grid grid-cols-5 gap-4 m-6 mt-18 h-14 ">
             {recipes.length >0 ? (
                    recipes.map((meal)=>(
                         <div key={meal.idMeal}  
