@@ -47,12 +47,12 @@ const Details = () =>{
         <>
          <div className="  inset-0 bg-gray-400 flex justify-center items-center bg-opacity-50 sm:h-[1700px] p-1 lg:h-[1400px]  p-4" >
             {details && (
-                  <div className=" mt-4 lg:h-[1300px] w-[1100px]  bg-linear-to-t from-orange-700 to-orange-400 rounded-lg 
-                  flex flex-col inset-shadow-sm inset-shadow-orange-900" key={details.idMeal} >
-             <div  className="  lg:flex flex-row lg:justify-between lg:p-6 sm:flex flex-row p-2 text-center" >
+                  <div className=" lg:mt-4 lg:h-[1300px] w-[1100px]  bg-linear-to-t from-orange-700 to-orange-400 rounded-lg 
+                  flex flex-col inset-shadow-sm inset-shadow-orange-900 sm:mt-4 md:mt-38" key={details.idMeal} >
+             <div  className="  lg:flex flex-row lg:justify-between lg:p-6 sm:flex sm:flex-row  sm:text-center md:flex flex-row justify-between" >
                  <button onClick={()=>navigate("/new")}className="text-[20px] cursor-pointer" >Close</button>
-                 <h1 className="font-[righteous] lg:text-4xl sm:text-[20px]">{details.strMeal}</h1>
-                 <button onClick={()=>addtofav(details.idMeal)} className={`mt-2 px-4 py-2 ${isFav ? "bg-blue-500" : "bg-gray-300"}`}>
+                 <h1 className="font-[righteous] lg:text-4xl sm:text-[20px] text-center">{details.strMeal}</h1>
+                 <button onClick={()=>addtofav(details.idMeal)} className={`mt-2 px-4  py-2 ${isFav ? "bg-blue-500" : "bg-gray-300"}` } >
                   {isFav ? <StarRateIcon></StarRateIcon> :  < StarBorderIcon></StarBorderIcon> }
                  </button>
              </div>
@@ -62,7 +62,7 @@ const Details = () =>{
                     <p className="text-center font-[saira] text-[30px]">{details.strCategory}</p>
                     <p className="text-center ">({details.strArea})</p>
                 </div>
-                <div className=" mt-20 flew flew-col gap-2 rounded-2xl lg:w-[350px] lg:h-[500px] bg-[#000] sm:w-[200px] sm:h-[700px] m-2 ">
+                <div className=" mt-20 flew flew-col gap-2 rounded-2xl lg:w-[350px] lg:h-[500px] bg-[#000] sm:w-[200px] sm:h-[700px] m-2 md:w-[400px]">
                     <h3 className="pt-6 pl-20 text-[25px] relative  text-[#F4722B]">Ingredients Board</h3>
                      <ul className="list-disc pl-12 pt-4 text-[#fff]">
                           {Array.from({ length: 20 }, (_, i) => i + 1) .map((i) => ({ ingredient: details[`strIngredient${i}`],
@@ -72,7 +72,7 @@ const Details = () =>{
                    </ul>
                 </div>
              </div>
-             <div className="flex flex-col gap-4 mt-11">
+             <div className="flex flex-col gap-4 lg:mt-11">
                 <div className="text-center text-[45px] text-[saira]">Instruction</div>
                 <p className="text-[#000] lg:text-[20px] lg:p-8 lg:pl-25 lg:pr-18 sm:text-[13px] p-6">{details.strInstructions}</p>
                 {details.strYoutube && (

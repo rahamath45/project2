@@ -57,7 +57,7 @@ import { useAppContext } from "../Context/AppContext";
              </div>
              
          </div>
-         <div className="  w-[1350px] bg-orange-500 ">
+         <div className=" w-[1350px] bg-orange-500">
             <h1 className="text-center p-2 text-[40px] font-[righteous]">Categories</h1>
              <div className="flex flex-wrap flex-row gap-4 p-1 ">
                 { categ && categ.map(meal =>(parseInt(meal.idCategory) <=12 && (
