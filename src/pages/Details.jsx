@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link,  useNavigate, useParams } from "react-router-dom";
 import { API_DETAILS } from "../backend";
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import StarRateIcon from '@mui/icons-material/StarRate';
@@ -12,6 +12,7 @@ const Details = () =>{
     const [details,setDetails] = useState(null);
     const {id:idMeal } = useParams ();
     const navigate = useNavigate();
+   
     const [fav,setFav] = useState(()=>{
          const stored = localStorage.getItem("fav");
     return stored ? JSON.parse(stored) : [];
@@ -45,20 +46,21 @@ const Details = () =>{
    if(!details) return <p className="text-xl">Loading....</p>
     return(
         <>
-         <div className="  inset-0 bg-gray-400 flex justify-center items-center bg-opacity-50 sm:h-[1700px] p-1 lg:h-[1400px]  p-4" >
+     
+         <div className=" w-[900px] bg-gray-400 flex justify-center items-center bg-opacity-50   sm:p-1 lg:h-[1400px] lg:w-auto p-4 " >
             {details && (
-                  <div className=" lg:mt-4 lg:h-[1300px] w-[1100px]  bg-linear-to-t from-orange-700 to-orange-400 rounded-lg 
-                  flex flex-col inset-shadow-sm inset-shadow-orange-900 sm:mt-4 md:mt-38" key={details.idMeal} >
-             <div  className="  lg:flex flex-row lg:justify-between lg:p-6 sm:flex sm:flex-row  sm:text-center md:flex flex-row justify-between" >
-                 <button onClick={()=>navigate("/new")}className="text-[20px] cursor-pointer" >Close</button>
+                  <div className="   bg-linear-to-t from-orange-700 to-orange-400 rounded-lg 
+                  flex flex-col inset-shadow-sm inset-shadow-orange-900  " key={details.idMeal} >
+             <div  className="  lg:flex flex-row lg:justify-between lg:p-4 sm:flex flex-row  sm:text-center md:flex flex-row justify-between" >
+                 <button onClick={()=>navigate("/")}className="text-[20px] cursor-pointer" >Close</button>
                  <h1 className="font-[righteous] lg:text-4xl sm:text-[20px] text-center">{details.strMeal}</h1>
                  <button onClick={()=>addtofav(details.idMeal)} className={`mt-2 px-4  py-2 ${isFav ? "bg-blue-500" : "bg-gray-300"}` } >
                   {isFav ? <StarRateIcon></StarRateIcon> :  < StarBorderIcon></StarBorderIcon> }
                  </button>
              </div>
              <div className="lg:flex flex-row lg:gap-[8rem] lg:pl-10 sm:p-4">
-                <div className="flex flex-col gap-2">
-                    <img className="lg:w-[400px] h-[500px] object-cover  pt-8 rounded-md "src={details.strMealThumb  ? details.strMealThumb : "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"} alt={details.strMeal} />
+                <div className="flex flex-col gap-2 ">
+                    <img className="lg: w-full h-[500px] object-cover  pt-8 rounded-md "src={details.strMealThumb  ? details.strMealThumb : "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"} alt={details.strMeal} />
                     <p className="text-center font-[saira] text-[30px]">{details.strCategory}</p>
                     <p className="text-center ">({details.strArea})</p>
                 </div>
@@ -83,6 +85,7 @@ const Details = () =>{
             </div>
             )}
          </div>
+         
         </>
     )
   }

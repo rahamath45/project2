@@ -5,13 +5,15 @@ import Details from "./pages/Details"
 import "./App.css"
 
 function App() {
-  
+ 
 
   return (
            <>
+          
+         <Nav/>
           <Routes>
-            <Route exact path="/" element={<Nav/>}/>
-            <Route  path="/new" element={<Search/>} />
+   
+            <Route  path="/" element={<Search/>} />
             <Route path="/recipes/:id" element={<Details/>} />
           </Routes>
     </>
